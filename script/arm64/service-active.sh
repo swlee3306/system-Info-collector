@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# 환경 설정
+# 환경 설정 (기본값 설정)
 GOARCH=${GOARCH:-arm64}  # 기본값을 arm64로 설정 (환경 변수가 없을 경우)
-SERVER_USER="root"       # 우분투 서버의 사용자 계정
-SERVER_IP="192.168.65.2" # 우분투 서버의 IP 주소
-SERVER_PORT="5000"       # 우분투 서버의 SSH 포트
+SERVER_USER=${1:-"root"}       # 첫 번째 인자로 사용자 계정 지정 (없으면 기본값 root)
+SERVER_IP=${2:-"192.168.68.7"} # 두 번째 인자로 서버 IP 지정 (없으면 기본값)
+SERVER_PORT=${3:-"22"}       # 세 번째 인자로 SSH 포트 지정 (없으면 기본값 22)
 TARGET_DIR="/usr/local/bin"
 SERVICE_NAME="system-agent"
 SERVICE_FILE="/etc/systemd/system/${SERVICE_NAME}.service"
